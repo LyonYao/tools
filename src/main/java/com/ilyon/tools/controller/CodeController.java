@@ -21,7 +21,7 @@ import com.ilyon.tools.service.SummaryService;
 public class CodeController {
 	@Autowired
 	private SummaryService summaryService;
-	@Feature(name="查看功能url的代码列表",url="code/list-relative-code?url=",desc="")
+	@Feature(name="查看功能url的代码列表",url="code/list-relative-code?url=code/list-relative-code",desc="")
 	@RequestMapping("/list-relative-code")
 	public ModelAndView listCodeFiles(@RequestParam("url") String url){
 		return new ModelAndView("code/code-file-list","classSet",summaryService.listCodeFiles(url));

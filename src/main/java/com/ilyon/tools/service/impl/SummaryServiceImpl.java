@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ilyon.tools.annotation.Category;
 import com.ilyon.tools.annotation.Feature;
 import com.ilyon.tools.service.SummaryService;
+import com.ilyon.tools.utils.MaskTool;
 import com.ilyon.tools.vo.CategoryVo;
 import com.ilyon.tools.vo.FeatureVo;
 
@@ -169,7 +170,7 @@ public class SummaryServiceImpl implements SummaryService {
         StringBuffer buf=new StringBuffer();
         try {
 			while ((line = input.readLine ()) != null) {
-				buf.append(line).append("\n");
+				buf.append(MaskTool.mask(line)).append("\n");
 			}
         }catch(Exception e){
         	e.printStackTrace();
