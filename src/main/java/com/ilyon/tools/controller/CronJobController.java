@@ -41,7 +41,11 @@ public class CronJobController {
 		}  
 	       Calendar calendar = Calendar.getInstance();  
 	       Date now = calendar.getTime();  
-	       calendar.add(Calendar.MONTH, 15);
+	       int day = 15;
+	       if(cronstr.indexOf("/")>0){
+	    	   day=1;
+	       }
+	       calendar.add(Calendar.MONTH, day);
 	       List<Date> dates = TriggerUtils.computeFireTimesBetween(cronTriggerImpl, null, now, calendar.getTime());  
 	       SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
 	       for(int i =0;i < dates.size();i ++){  
